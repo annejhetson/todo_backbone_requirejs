@@ -9,9 +9,9 @@ var TodoView = Backbone.View.extend({
                         '<%= description %>: <%= status %></h4>'),
 
 
-  initialize: function(){ // rerender item when status changed
-    this.model.on('change', this.render, this);
-    // this.model.on('destroy', this.remove, this);
+  initialize: function(){
+    this.model.on('change', this.render, this); // rerender item when status changed
+    this.model.on('destroy', this.remove, this);
   },
 
   remove: function(){
