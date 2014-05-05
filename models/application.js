@@ -1,21 +1,35 @@
 var TodoItem = Backbone.Model.extend({
-  urlRoot: 'todos/',
+  urlRoot: '/todos',
 
   defaults: {
     description: 'Nothing',
     status: 'incomplete'
+  },
+
+
+  toggleStatus: function(){
+
+    // alert("that tickles!");
+    if(this.get('status') == 'incomplete'){
+      this.set('status', 'complete');
+    } else {
+      this.set('status', 'incomplete');
+    }
+    this.save();
   }
 });
 
 var todoItem = new TodoItem();
-  // { description: "Feed the dog", status: "incomplete", id: 1 }
+
+
+
+// TEST update description
 
 // set alert function when description is changed
-todoItem.on('change', function() {
-  alert('description changed to ' + this.get('description'));
-});
+// todoItem.on('change', function() {
+//   alert('description changed to ' + this.get('description'));
+// });
 
-// update description
 todoItem.set('description', 'buy grocery');
 
 
