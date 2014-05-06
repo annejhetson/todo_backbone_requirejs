@@ -12,6 +12,7 @@ var TodoView = Backbone.View.extend({
   initialize: function(){
     this.model.on('change', this.render, this); // rerender item when status changed
     this.model.on('destroy', this.remove, this);
+    this.model.on('hide', this.remove, this);
   },
 
   remove: function(){
@@ -36,7 +37,7 @@ var TodoView = Backbone.View.extend({
 
 var todoView = new TodoView({ model: todoItem });
 // todoView.render();
-$('#container').append(todoView.render().el);
+// $('#container').append(todoView.render().el);
 console.log(todoView.render().el);
 
 

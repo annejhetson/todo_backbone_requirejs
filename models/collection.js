@@ -1,7 +1,21 @@
 // Specify class for collection items
 var TodoList = Backbone.Collection.extend({
   model: TodoItem,
-  url : '/todos'
+  url : '/todos',
+    
+  initialize: function() {
+	this.on('remove', this.hideModel);
+  },
+
+  //when remove event is fired, run hide model
+  //then trigger hide event and remove item from view
+  //TRY todoList.remove(todoList.at(0)) to see the first item
+  //gets removed in action
+  hideModel: function(model){
+    model.trigger('hide');
+  }
+
+  
 });
 
 var todoList = new TodoList();
@@ -19,3 +33,4 @@ todoList.reset(lotsoftodos); //populate tasks from letsoftodos above
 // todoList.forEach(function(item){
 //   alert(item.get('description'));
 // });
+
