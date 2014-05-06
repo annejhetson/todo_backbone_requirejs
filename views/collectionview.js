@@ -14,27 +14,13 @@ var TodoListView = Backbone.View.extend({
 
   createTodoOnEnter: function(e){
     var newTodo = $('#new-todo').val();
-    // console.log(todoList.at(0).get('description'));
     todoList.create({description: newTodo});
+    //===SAME AS CODE BELOW===//
     // var todo = new TodoItem();
     // todo.set('description', newTodo);
     // todoList.add(todo);
-
-
-    // if(e.keyCode != 13) return;
-    // if (!this.$el.find("#new-todo").val()) return;
-    //     this.todoList.create({title: this.$el.find("#new-todo").val(),completed: false}); // sync new model and add to our Todos collection
-    //     this.$el.find("#new-todo").val(''); //clear input box
-    //     return this;
-    // },
-
-  // newAttr: function(){
-  //   return {
-  //     title: this.input.val().trim(),
-  //     completed: false
-  //   }
+    $('#new-todo').val(''); // clear input box
   },
-  //when run
 
   addOne: function(todoItem) {
     var todoView = new TodoView({model: todoItem});

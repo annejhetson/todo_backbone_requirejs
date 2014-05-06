@@ -2,7 +2,7 @@
 var TodoList = Backbone.Collection.extend({
   model: TodoItem,
   url : '/todos',
-    
+
   initialize: function() {
 	this.on('remove', this.hideModel);
   },
@@ -15,19 +15,27 @@ var TodoList = Backbone.Collection.extend({
     model.trigger('hide');
   }
 
-  
+
 });
 
 var todoList = new TodoList();
 todoList.fetch();
 
-var lotsoftodos = [
-  {description: 'buy food'},
-  {description: 'buy milk'},
-  {description: 'buy juice'},
-];
+//===Preset todo items in bulk===//
+// var lotsoftodos = [
+//   {description: 'buy food'},
+//   {description: 'buy milk'},
+//   {description: 'buy juice'},
+// ];
 
-todoList.reset(lotsoftodos); //populate tasks from letsoftodos above
+// todoList.reset(lotsoftodos); //populate tasks from letsoftodos above
+
+
+//NOTE!! add more stuff to list using console
+//newTodo = new TodoItem({description: "wash dishes"}) >> set instance
+//todoList.add(newTodo) >> add newTodo to the todoList
+
+
 
 //alert each item in collection array
 // todoList.forEach(function(item){
