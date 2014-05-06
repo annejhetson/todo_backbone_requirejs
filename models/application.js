@@ -1,5 +1,5 @@
 var TodoItem = Backbone.Model.extend({
-  urlRoot: '/todos',
+  urlRoot: '/todo',
 
   defaults: {
     description: 'Nothing',
@@ -19,6 +19,7 @@ var TodoItem = Backbone.Model.extend({
   }
 });
 
+
 var todoItem = new TodoItem();
 
 
@@ -30,7 +31,7 @@ var todoItem = new TodoItem();
 //   alert('description changed to ' + this.get('description'));
 // });
 
-todoItem.set('description', 'buy grocery');
+// todoItem.set('description', 'buy grocery');
 
 
 

@@ -3,10 +3,10 @@ var TodoView = Backbone.View.extend({
   id: 'todo-view',
   classname: 'todo',
 
-  template: _.template('<h4 class="<%= status %>">' +
+  template: _.template('<h3 class="<%= status %>">' +
                        '<input type=checkbox ' +
                         '<% if(status === "complete") print("checked") %> >' +
-                        '<%= description %>: <%= status %></h4>'),
+                        '<%= description %>: <%= status %></h3>'),
 
 
   initialize: function(){
@@ -21,6 +21,7 @@ var TodoView = Backbone.View.extend({
   render: function(){
     var attributes = this.model.toJSON();
     this.$el.html(this.template(attributes));
+    return this;
   },
 
   events: {
