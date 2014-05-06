@@ -5,6 +5,7 @@ var TodoList = Backbone.Collection.extend({
 });
 
 var todoList = new TodoList();
+todoList.fetch();
 
 var lotsoftodos = [
   {description: 'buy food'},

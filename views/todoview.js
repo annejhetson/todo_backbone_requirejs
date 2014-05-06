@@ -35,9 +35,9 @@ var TodoView = Backbone.View.extend({
 });
 
 var todoView = new TodoView({ model: todoItem });
-todoView.render();
-$('#container').append(todoView.el);
-console.log(todoView.el);
+// todoView.render();
+$('#container').append(todoView.render().el);
+console.log(todoView.render().el);
 
 
 
