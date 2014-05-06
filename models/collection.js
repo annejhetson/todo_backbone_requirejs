@@ -1,6 +1,7 @@
 // Specify class for collection items
 var TodoList = Backbone.Collection.extend({
   model: TodoItem,
+  localStorage: new Store("backbone-todo"),
   url : '/todos',
 
   initialize: function() {
