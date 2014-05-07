@@ -1,14 +1,14 @@
 var TodoView = Backbone.View.extend({
   tagName: 'article',
   id: 'todo-view',
-  classname: 'todo',
+  className: 'todo',
 
   template: _.template('<h3 class="<%= status %>">' +
-                       '<input type=checkbox ' +
+                       '<input type=checkbox id="checkbox"' +
                         '<% if(status === "complete") print("checked") %> >' +
-                        '<%= description %>: <%= status %><input class="edit" value="<%= description %>">' +
-                        '<a href="#<%= description %>" class="todo">  ✈</a>' +
-                        '<button class="destroy btn-danger">remove</button></h3>'),
+                        '<%= description %>: <%= status %></h3><input class="edit" placeholder="<%= description %>">' +
+                        '<button class="edit btn-info">update</button> <a href="#<%= description %>" class="todo">  ✈ </a>' +
+                        '<button class="destroy btn-danger">remove</button>'),
 
 
   initialize: function(){
@@ -28,9 +28,18 @@ var TodoView = Backbone.View.extend({
   },
 
   events: {
-    "change input": 'toggleStatus', //run toggleStatus function when input changed
+    "change input#checkbox": 'toggleStatus', //run toggleStatus function when input changed
     "click .destroy": function() { this.model.destroy(); },
-    "dblclick h3": 'edit'
+    "dblclick h3": 'edit',
+    "click button.edit": 'updateItem'
+  },
+
+  updateItem: function(){
+    var updatedTodo = $('.editing input.edit').val();
+    this.model.set('description', updatedTodo);
+    this.model.save();
+    // updatedTodo = '';
+    this.$el.removeClass('editing');
   },
 
   edit: function(){
