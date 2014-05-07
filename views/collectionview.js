@@ -1,7 +1,7 @@
 var TodoListView = Backbone.View.extend({
   el: '#container',
   events: {
-    "click button": "createTodoOnEnter"
+    "click .new-todo": "createTodoOnEnter"
   },
 
   initialize: function(){
@@ -10,7 +10,6 @@ var TodoListView = Backbone.View.extend({
     this.collection.fetch();
     //not 100% sure about fetch and reset here
   },
-
 
   createTodoOnEnter: function(e){
     var newTodo = $('#new-todo').val();

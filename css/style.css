@@ -2,3 +2,12 @@
   color: #bbb;
   text-decoration: line-through;
 }
+
+.edit {
+  display: none;
+}
+
+.editing .edit {
+  display: inline;
+}
+

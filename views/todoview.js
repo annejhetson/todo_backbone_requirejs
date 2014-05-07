@@ -6,7 +6,9 @@ var TodoView = Backbone.View.extend({
   template: _.template('<h3 class="<%= status %>">' +
                        '<input type=checkbox ' +
                         '<% if(status === "complete") print("checked") %> >' +
-                        '<%= description %>: <%= status %></h3>'),
+                        '<%= description %>: <%= status %><input class="edit" value="<%= description %>">' +
+                        '<a href="#<%= description %>" class="todo">  ✈</a>' +
+                        '<button class="destroy btn-danger">remove</button></h3>'),
 
 
   initialize: function(){
@@ -26,9 +28,14 @@ var TodoView = Backbone.View.extend({
   },
 
   events: {
-    "change input": 'toggleStatus' //run toggleStatus function when input changed
+    "change input": 'toggleStatus', //run toggleStatus function when input changed
+    "click .destroy": function() { this.model.destroy(); },
+    "dblclick h3": 'edit'
   },
 
+  edit: function(){
+    this.$el.addClass('editing');
+  },
 
   toggleStatus: function(){ //tell it to run toggleStatus function on model
     this.model.toggleStatus();
@@ -38,7 +45,7 @@ var TodoView = Backbone.View.extend({
 var todoView = new TodoView({ model: todoItem });
 // todoView.render();
 // $('#container').append(todoView.render().el);
-console.log(todoView.render().el);
+// console.log(todoView.render().el);
 
 
 
@@ -49,10 +56,10 @@ console.log(todoView.render().el);
 
 
 
-var SimpleView = Backbone.View.extend({
-  tagName: 'li',
-  id: 'simple'
-});
+// var SimpleView = Backbone.View.extend({
+//   tagName: 'li',
+//   id: 'simple'
+// });
 
-var simpleTodoView = new SimpleView();
-console.log(simpleTodoView.el);
+// var simpleTodoView = new SimpleView();
+// console.log(simpleTodoView.el);
