@@ -4,6 +4,11 @@
 }
 
 .well {
+	width: 300px;
+	height: 150px;
+}
+
+h4 {
 	width: 200px;
 }
 
