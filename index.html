@@ -11,9 +11,19 @@
   <div class="container" id="container">
     <h2>What do you need to do?</h2>
     <input id="new-todo" placeholder="What needs to be done?"></input>
-    <button class="btn btn-success new-todo">Add</button>
+    <button class="btn btn-info new-todo">Add</button>
     <hr>
 
+    <script type="text/template" id="item-template">
+      <div class="view <%= status %> col-md-2">
+        <input type=checkbox id="checkbox" <% if(status === "complete") print("checked") %>>
+        <h4><%= description %></h4>
+        <input class="edit" placeholder="<%= description %>">
+        <button class="edit btn-info">update</button>
+        <button class="destroy btn-danger">remove</button>
+      </div>
+    </script>
+    
   </div>
 
 
@@ -31,6 +41,9 @@
  <!-- Views -->
  <script src="views/todoview.js"></script>
  <script src="views/collectionview.js"></script>
+
+  <!-- Router -->
+ <script src="todos-router.js"></script>
 
 
 

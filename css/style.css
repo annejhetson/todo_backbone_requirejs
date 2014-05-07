@@ -1,6 +1,10 @@
-.complete {
+.complete h4 {
   color: #bbb;
   text-decoration: line-through;
+}
+
+.well {
+	width: 200px;
 }
 
 .edit {

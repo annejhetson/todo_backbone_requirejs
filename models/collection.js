@@ -20,7 +20,11 @@ var TodoList = Backbone.Collection.extend({
 });
 
 var todoList = new TodoList();
-todoList.fetch();
+todoList.fetch(); // send HTTP GET to /todos
+
+
+
+
 
 //===Preset todo items in bulk===//
 // var lotsoftodos = [
