@@ -3,9 +3,11 @@
 <head>
   <title>Todo List Again and Again!</title>
   <meta charset="utf-8">
+  
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
+  <script data-main="js/main" src="js/libs/require/require.js"></script>
+</head> 
 <body>
 
   <div class="container" id="container">
@@ -13,37 +15,12 @@
     <input id="new-todo" placeholder="What needs to be done?"></input>
     <button class="btn btn-info new-todo">Add</button>
     <hr>
+    <div id="output">
+    </div>
 
-    <script type="text/template" id="item-template">
-      <div class="view <%= status %> col-md-2">
-        <input type=checkbox id="checkbox" <% if(status === "complete") print("checked") %>>
-        <h4><%= description %></h4>
-        <input class="edit" placeholder="<%= description %>">
-        <button class="edit btn-info">update</button>
-        <button class="destroy btn-danger">remove</button>
-      </div>
-    </script>
     
   </div>
 
-
-  <!-- JS Libraries -->
-  <!-- script src="libs/handlebars-v1.3.0.js"></script -->
-  <script src="libs/underscore.js"></script>
-  <script src="libs/jquery-1.11.1.js"></script>
-  <script src="libs/backbone.js"></script>
-  <script src="libs/backbone.localStorage-min.js"></script>
-
- <!-- Models -->
- <script src="models/application.js"></script>
- <script src="models/collection.js"></script>
-
- <!-- Views -->
- <script src="views/todoview.js"></script>
- <script src="views/collectionview.js"></script>
-
-  <!-- Router -->
- <script src="todos-router.js"></script>
 
 
 

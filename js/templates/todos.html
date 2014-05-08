@@ -1,0 +1,7 @@
+<div class="view <%= status %> col-md-2">
+	<input type=checkbox id="checkbox" <% if(status === "complete") print("checked") %>>
+	<h4><%= description %></h4>
+	<input class="edit" placeholder="<%= description %>">
+	<button class="edit btn-info">update</button>
+	<button class="destroy btn-danger">remove</button>
+</div>
