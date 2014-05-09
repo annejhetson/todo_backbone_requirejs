@@ -8,6 +8,10 @@ define(['jquery', 'backbone'], function($,Backbone){
       status: 'incomplete'
     },
 
+    initialize: function(){
+      // alert(this.get('description')+" is initialized");
+    },
+
     toggleStatus: function(){
 
       // alert("that tickles!");
@@ -22,19 +26,5 @@ define(['jquery', 'backbone'], function($,Backbone){
   return TodoItem;
     
 });
-
-
-
-
-
-// TEST update description
-
-// set alert function when description is changed
-// todoItem.on('change', function() {
-//   alert('description changed to ' + this.get('description'));
-// });
-
-// todoItem.set('description', 'buy grocery');
-
 
 
